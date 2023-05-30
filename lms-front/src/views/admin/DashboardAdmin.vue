@@ -2,14 +2,20 @@
 import {RouterView } from 'vue-router'
 import Header from "@/components/Header.vue";
 import ASidebar from "@/components/admin/A-Sidebar.vue";
+import {useProjectStore} from "@/stores/project";
+import {useLectureStore} from "@/stores/lecture";
 
+const projectStore = useProjectStore();
+const lectureStore = useLectureStore();
 
 
 </script>
 
 <template>
   <Header />
-  <a-sidebar/>
+  <a-sidebar :projects="projectStore.projects"
+             :lectures="lectureStore.lectures"
+  />
 
   <main id="main" class="main">
 

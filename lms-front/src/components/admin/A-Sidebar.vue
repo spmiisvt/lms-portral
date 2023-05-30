@@ -1,5 +1,17 @@
 <script setup>
+import {RouterLink} from "vue-router";
 
+const props = defineProps({
+  projects: {
+    type: Object,
+    required: true
+  },
+  lectures: {
+    type: Object,
+    required: true,
+  }
+
+})
 </script>
 <template>
   <aside id="sidebar" class="sidebar">
@@ -18,16 +30,15 @@
           <i class="bi bi-menu-button-wide"></i><span>Проекты</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Генератор текста</span>
-            </a>
+          <li
+              v-for="project in projects"
+              :key="project.id"
+          >
+            <router-link :to="{ name: 'Project', params: {id: project.id} }">
+              <i class="bi bi-circle"></i><span>{{project.title}}</span>
+            </router-link>
           </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Парсер сайта</span>
-            </a>
-          </li>
+
         </ul>
       </li>
 
@@ -36,25 +47,13 @@
           <i class="bi bi-journal-text"></i><span>Теория</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Введение</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Переменные</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Списки</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Циклы</span>
-            </a>
+          <li
+              v-for="lecture in lectures"
+              :key="lecture.id"
+          >
+            <router-link :to="{ name: 'Lecture', params: {id: lecture.id} }">
+              <i class="bi bi-circle"></i><span>{{lecture.title}}</span>
+            </router-link>
           </li>
         </ul>
       </li><!-- End Forms Nav -->

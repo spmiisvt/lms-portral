@@ -1,5 +1,6 @@
 package com.lmsportal.lmsbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -17,11 +18,12 @@ public class Lecture {
     @Column(name = "lecture_order")
     private Integer order;
 
+    @JsonIgnore
     @OneToMany(
             mappedBy = "lecture",
             orphanRemoval = true,
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
     private List<Chapter> chapters;
 

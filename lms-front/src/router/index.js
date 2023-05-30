@@ -35,7 +35,14 @@ const router = createRouter({
         {
           path: 'projects',
           name: 'Projects',
-          component: () => import("@/views/admin/ProjectsAdminView.vue")
+          component: () => import("@/views/admin/ProjectsAdminView.vue"),
+          children: [
+            {
+              path: ':id',
+              name: "Project",
+              component: () => import("@/views/admin/ProjectsAdminView.vue"),
+            }
+          ]
         },
         {
           path: 'theory',

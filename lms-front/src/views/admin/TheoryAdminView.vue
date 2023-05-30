@@ -1,15 +1,22 @@
+<script setup>
+import { useLectureStore } from "@/stores/lecture";
+import {onMounted} from "vue";
+
+const lectureStore = useLectureStore();
+
+onMounted(()=> lectureStore.getLectures())
+
+</script>
 <template>
 <section class="section">
   <div class="row align-items-top">
     <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Default Card</h5>
-          Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus voluptas.
-          Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem numquam. Enim fuga ipsum dolor nulla quia ut.
-          Rerum dolor voluptatem et deleniti libero totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
-        </div>
-      </div>
+      <AChapter
+          v-for="chapter in lectureStore.chapters"
+          :key="chapter.id"
+          :order="chapter.order"
+          :title="chapter.title"
+          :content="chapter.content"/>
     </div>
     <div class="col-lg-6">
       <div class="card">
