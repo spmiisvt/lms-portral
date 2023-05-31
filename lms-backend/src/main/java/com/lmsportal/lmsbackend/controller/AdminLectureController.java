@@ -24,4 +24,9 @@ public class AdminLectureController {
         return null;
     }
 
+    @GetMapping("/{lectureId}")
+    public Lecture getLecture(@PathVariable("lectureId") Long lectureId) {
+        return null;
+    }
+
 }
