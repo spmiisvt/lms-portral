@@ -51,7 +51,7 @@ const props = defineProps({
               v-for="lecture in lectures"
               :key="lecture.id"
           >
-            <router-link :to="{ name: 'Lecture', params: {id: lecture.id} }">
+            <router-link :to="{ name: 'Lecture', params: {id: lecture.id}}">
               <i class="bi bi-circle"></i><span>{{lecture.title}}</span>
             </router-link>
           </li>

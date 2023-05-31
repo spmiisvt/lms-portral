@@ -35,12 +35,16 @@ const router = createRouter({
         {
           path: 'projects',
           name: 'Projects',
-          component: () => import("@/views/admin/ProjectsAdminView.vue"),
+
           children: [
+            {
+              path: "",
+              component: () => import("@/views/admin/ProjectsAdminView.vue"),
+            },
             {
               path: ':id',
               name: "Project",
-              component: () => import("@/views/admin/ProjectsAdminView.vue"),
+              component: () => import("@/views/admin/ProjectEditAdminView.vue"),
             }
           ]
         },
@@ -48,6 +52,13 @@ const router = createRouter({
           path: 'theory',
           name: 'Theory',
           component: () => import("@/views/admin/TheoryAdminView.vue"),
+          children: [
+            {
+              path: ":id",
+              name: "Lecture",
+              component: ""
+            }
+          ]
         },
         {
           path: 'survey',

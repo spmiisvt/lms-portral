@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/lectures")
+@CrossOrigin("*")
 public class AdminLectureController {
     private final AdminLectureService lectureService;
 
@@ -21,7 +22,7 @@ public class AdminLectureController {
 
     @GetMapping
     public List<Lecture> getLectures() {
-        return null;
+        return this.lectureService.getLectures();
     }
 
     @GetMapping("/{lectureId}")

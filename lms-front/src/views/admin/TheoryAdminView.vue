@@ -11,12 +11,12 @@ onMounted(()=> lectureStore.getLectures())
 <section class="section">
   <div class="row align-items-top">
     <div class="col-lg-6">
-      <AChapter
-          v-for="chapter in lectureStore.chapters"
-          :key="chapter.id"
-          :order="chapter.order"
-          :title="chapter.title"
-          :content="chapter.content"/>
+<!--      <AChapter-->
+<!--          v-for="chapter in lectureStore.chapters"-->
+<!--          :key="chapter.id"-->
+<!--          :order="chapter.order"-->
+<!--          :title="chapter.title"-->
+<!--          :content="chapter.content"/>-->
     </div>
     <div class="col-lg-6">
       <div class="card">
